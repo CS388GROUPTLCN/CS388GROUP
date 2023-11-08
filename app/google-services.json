@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "976769366404",
+    "project_id": "human-benchmark-37da4",
+    "storage_bucket": "human-benchmark-37da4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976769366404:android:7c0cbf0d3f1b9cb35b05d1",
+        "android_client_info": {
+          "package_name": "com.cs388.humanbenchmark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "976769366404-5f7ccvshu4rle27hshsgqlinif5963qu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cs388.humanbenchmark",
+            "certificate_hash": "a10a7a2571e4ee3f76d04ebde4380128d75f952c"
+          }
+        },
+        {
+          "client_id": "976769366404-k7r59s6sn3tsg64kt1jcg7e7b4eo0im9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANw_jCGjfYgQH9pNsjSFTBxBkMgWZkuyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976769366404-k7r59s6sn3tsg64kt1jcg7e7b4eo0im9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
