@@ -32,8 +32,9 @@ import com.google.firebase.auth.GoogleAuthProvider
 class homeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private var currentUser: GoogleSignInAccount? = null
 
-
+    private var seen = false
     //private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,23 +53,34 @@ class homeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        auth = FirebaseAuth.getInstance()
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
+        if(!seen ){
 
-        googleSignInClient = context?.let { GoogleSignIn.getClient(it, gso) }!!
+            auth = FirebaseAuth.getInstance()
+
+            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+
+            googleSignInClient = context?.let { GoogleSignIn.getClient(it, gso) }!!
 
 
 
 
 
-        view?.findViewById<Button>(R.id.signInBtn)?.setOnClickListener { // sign in button
-            signInGoogle()
+            view?.findViewById<Button>(R.id.signInBtn)?.setOnClickListener { // sign in button
+                signInGoogle()
+            }
+            seen = true
+
         }
+        else{
+            currentUser?.let { updateUI(it) }
+        }
+
         return view
 
 
@@ -105,12 +117,13 @@ class homeFragment : Fragment() {
         if (task.isSuccessful){
             val account : GoogleSignInAccount? = task.result
             if (account != null){
+                currentUser = account // Store the current user
                 Log.d("TEST","SUCCESS1")
                 updateUI(account)
             }
         }
         else{
-           Toast.makeText(context, task.exception.toString(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, task.exception.toString(), Toast.LENGTH_SHORT).show()
         }
     }
     @SuppressLint("SuspiciousIndentation")
