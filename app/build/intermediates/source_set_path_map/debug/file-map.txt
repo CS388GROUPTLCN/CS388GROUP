@@ -1,0 +1,46 @@
+com.cs388.humanbenchmark.app-library-1.6.1-0 C:\Users\blood\.gradle\caches\transforms-3\001288d93c9cc1b4e01819ade72b6095\transformed\library-1.6.1\res
+com.cs388.humanbenchmark.app-play-services-basement-18.2.0-1 C:\Users\blood\.gradle\caches\transforms-3\028b2468fad1416138d8ed55719adeea\transformed\play-services-basement-18.2.0\res
+com.cs388.humanbenchmark.app-activity-1.8.0-2 C:\Users\blood\.gradle\caches\transforms-3\04141f13e5d145cdf1f149bf9c979253\transformed\activity-1.8.0\res
+com.cs388.humanbenchmark.app-core-ktx-1.9.0-3 C:\Users\blood\.gradle\caches\transforms-3\045df1a909a234ed853d9161dc8f13a1\transformed\core-ktx-1.9.0\res
+com.cs388.humanbenchmark.app-lifecycle-livedata-2.6.1-4 C:\Users\blood\.gradle\caches\transforms-3\0854679040d9cbbc0cdf183c3e1eb289\transformed\lifecycle-livedata-2.6.1\res
+com.cs388.humanbenchmark.app-media-1.0.0-5 C:\Users\blood\.gradle\caches\transforms-3\0b08010d3b2d45000db33059e8b619b4\transformed\media-1.0.0\res
+com.cs388.humanbenchmark.app-annotation-experimental-1.3.0-6 C:\Users\blood\.gradle\caches\transforms-3\1425f6bc6b8a3fe444ae3dd3025aa7e9\transformed\annotation-experimental-1.3.0\res
+com.cs388.humanbenchmark.app-fragment-1.3.6-7 C:\Users\blood\.gradle\caches\transforms-3\1a69082402616fff8bdd85d04d17b545\transformed\fragment-1.3.6\res
+com.cs388.humanbenchmark.app-browser-1.4.0-8 C:\Users\blood\.gradle\caches\transforms-3\21844be236618b3150977bdd9f631626\transformed\browser-1.4.0\res
+com.cs388.humanbenchmark.app-appcompat-resources-1.6.1-9 C:\Users\blood\.gradle\caches\transforms-3\286dad69244186acac20ef2f12cecf9c\transformed\appcompat-resources-1.6.1\res
+com.cs388.humanbenchmark.app-firebase-ui-auth-7.2.0-10 C:\Users\blood\.gradle\caches\transforms-3\2adc2a99a795221c529e14c08b57c91d\transformed\firebase-ui-auth-7.2.0\res
+com.cs388.humanbenchmark.app-circleimageview-3.1.0-11 C:\Users\blood\.gradle\caches\transforms-3\41e162800bf1135296b96127248cb241\transformed\circleimageview-3.1.0\res
+com.cs388.humanbenchmark.app-savedstate-1.2.1-12 C:\Users\blood\.gradle\caches\transforms-3\41eafbd6d86ef65e4a9c3540b3edf53e\transformed\savedstate-1.2.1\res
+com.cs388.humanbenchmark.app-lifecycle-runtime-2.6.1-13 C:\Users\blood\.gradle\caches\transforms-3\44524e0baea55ef14d84450405a51e4f\transformed\lifecycle-runtime-2.6.1\res
+com.cs388.humanbenchmark.app-cardview-1.0.0-14 C:\Users\blood\.gradle\caches\transforms-3\509e4aa49eff2b496bfb9da4c3533f2d\transformed\cardview-1.0.0\res
+com.cs388.humanbenchmark.app-recyclerview-1.1.0-15 C:\Users\blood\.gradle\caches\transforms-3\52c2e156b8984b6764094f0a41d35596\transformed\recyclerview-1.1.0\res
+com.cs388.humanbenchmark.app-play-services-base-18.0.1-16 C:\Users\blood\.gradle\caches\transforms-3\54aebf6968ab5c0bd53f02ce3fd1ae3a\transformed\play-services-base-18.0.1\res
+com.cs388.humanbenchmark.app-play-services-auth-20.7.0-17 C:\Users\blood\.gradle\caches\transforms-3\5a4bd15b2b982f1341b88e8eef8f35e7\transformed\play-services-auth-20.7.0\res
+com.cs388.humanbenchmark.app-lifecycle-viewmodel-2.6.1-18 C:\Users\blood\.gradle\caches\transforms-3\6871c932b617ef19d3d6ebbee1fefcef\transformed\lifecycle-viewmodel-2.6.1\res
+com.cs388.humanbenchmark.app-firebase-common-20.4.2-19 C:\Users\blood\.gradle\caches\transforms-3\6acc581649ace3d978fb134c839037f0\transformed\firebase-common-20.4.2\res
+com.cs388.humanbenchmark.app-drawerlayout-1.1.1-20 C:\Users\blood\.gradle\caches\transforms-3\75e8de69a75c74f19b4fc5c1ea2069d0\transformed\drawerlayout-1.1.1\res
+com.cs388.humanbenchmark.app-material-1.10.0-21 C:\Users\blood\.gradle\caches\transforms-3\7929c52048ea487372547c8e74961956\transformed\material-1.10.0\res
+com.cs388.humanbenchmark.app-lifecycle-process-2.6.1-22 C:\Users\blood\.gradle\caches\transforms-3\9d77b1691c4db876cd8e1ea459bd75ea\transformed\lifecycle-process-2.6.1\res
+com.cs388.humanbenchmark.app-profileinstaller-1.3.0-23 C:\Users\blood\.gradle\caches\transforms-3\9e0faaed1b7a08f24cd72b36e7d37561\transformed\profileinstaller-1.3.0\res
+com.cs388.humanbenchmark.app-core-runtime-2.2.0-24 C:\Users\blood\.gradle\caches\transforms-3\9e39850e60da5b5bb6b624e702dd2ab8\transformed\core-runtime-2.2.0\res
+com.cs388.humanbenchmark.app-viewpager2-1.0.0-25 C:\Users\blood\.gradle\caches\transforms-3\9e690c001fa1a6790b246872ef1a4040\transformed\viewpager2-1.0.0\res
+com.cs388.humanbenchmark.app-lifecycle-viewmodel-savedstate-2.6.1-26 C:\Users\blood\.gradle\caches\transforms-3\a925d03094edc22a0263692672bd23da\transformed\lifecycle-viewmodel-savedstate-2.6.1\res
+com.cs388.humanbenchmark.app-glide-4.16.0-27 C:\Users\blood\.gradle\caches\transforms-3\b195a21bb81dfa91719f888ff8ab24e0\transformed\glide-4.16.0\res
+com.cs388.humanbenchmark.app-core-1.9.0-28 C:\Users\blood\.gradle\caches\transforms-3\b56696f2b9e4c9e8648e40475aa9f4d0\transformed\core-1.9.0\res
+com.cs388.humanbenchmark.app-lifecycle-service-2.6.1-29 C:\Users\blood\.gradle\caches\transforms-3\b99696b06e30cc172f3375cd6cdae219\transformed\lifecycle-service-2.6.1\res
+com.cs388.humanbenchmark.app-startup-runtime-1.1.1-30 C:\Users\blood\.gradle\caches\transforms-3\bdd5c87a3356e2e6cd269ea8d433ff1f\transformed\startup-runtime-1.1.1\res
+com.cs388.humanbenchmark.app-emoji2-1.2.0-31 C:\Users\blood\.gradle\caches\transforms-3\be7b0421062971a40b2d68d7404a829f\transformed\emoji2-1.2.0\res
+com.cs388.humanbenchmark.app-appcompat-1.6.1-32 C:\Users\blood\.gradle\caches\transforms-3\d2edb9c28566321e8cca3e7f3d690f04\transformed\appcompat-1.6.1\res
+com.cs388.humanbenchmark.app-constraintlayout-2.1.4-33 C:\Users\blood\.gradle\caches\transforms-3\d3d5631141a25ae6ffc7b5d0169c80f8\transformed\constraintlayout-2.1.4\res
+com.cs388.humanbenchmark.app-coordinatorlayout-1.1.0-34 C:\Users\blood\.gradle\caches\transforms-3\d42b612cb6745bc05a28f58a67f16bb2\transformed\coordinatorlayout-1.1.0\res
+com.cs388.humanbenchmark.app-lifecycle-livedata-core-2.6.1-35 C:\Users\blood\.gradle\caches\transforms-3\e2b34fff8607c82b5d3a5ae20cf9a6e0\transformed\lifecycle-livedata-core-2.6.1\res
+com.cs388.humanbenchmark.app-emoji2-views-helper-1.2.0-36 C:\Users\blood\.gradle\caches\transforms-3\f1efd1cf2700b1616fb321aaeca339c2\transformed\emoji2-views-helper-1.2.0\res
+com.cs388.humanbenchmark.app-transition-1.2.0-37 C:\Users\blood\.gradle\caches\transforms-3\f9af6669de9c52e66ee2ff8e672cf18e\transformed\transition-1.2.0\res
+com.cs388.humanbenchmark.app-pngs-38 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\build\generated\res\pngs\debug
+com.cs388.humanbenchmark.app-res-39 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\build\generated\res\processDebugGoogleServices
+com.cs388.humanbenchmark.app-resValues-40 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\build\generated\res\resValues\debug
+com.cs388.humanbenchmark.app-packageDebugResources-41 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.cs388.humanbenchmark.app-packageDebugResources-42 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.cs388.humanbenchmark.app-merged_res-43 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\build\intermediates\merged_res\debug
+com.cs388.humanbenchmark.app-debug-44 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\src\debug\res
+com.cs388.humanbenchmark.app-main-45 C:\Users\blood\OneDrive\Documents\NJIT\FALL 2023\CS 388\mindQuest\app\src\main\res

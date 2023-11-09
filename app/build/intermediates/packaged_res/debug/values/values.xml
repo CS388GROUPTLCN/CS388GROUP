@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Human Benchmark</string>
+    <string name="default_web_client_id" translatable="false">976769366404-k7r59s6sn3tsg64kt1jcg7e7b4eo0im9.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">976769366404</string>
+    <string name="google_api_key" translatable="false">AIzaSyANw_jCGjfYgQH9pNsjSFTBxBkMgWZkuyg</string>
+    <string name="google_app_id" translatable="false">1:976769366404:android:7c0cbf0d3f1b9cb35b05d1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyANw_jCGjfYgQH9pNsjSFTBxBkMgWZkuyg</string>
+    <string name="google_storage_bucket" translatable="false">human-benchmark-37da4.appspot.com</string>
+    <string name="project_id" translatable="false">human-benchmark-37da4</string>
+    <style name="Base.Theme.HumanBenchmark" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.HumanBenchmark" parent="Base.Theme.HumanBenchmark"/>
+</resources>
