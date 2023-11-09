@@ -25,10 +25,10 @@ class HomeActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-        val email = intent.getStringExtra("email")
+        val email = intent.getStringExtra("email") // PULLS from UPDATE GUI in mainActivity
         val name = intent.getStringExtra("name")
 
-        findViewById<TextView>(R.id.textView).text = email + "\n" + name
+        findViewById<TextView>(R.id.welcomeMessage).text = email + "\n" + name
         findViewById<Button>(R.id.signOutBtn).setOnClickListener {
             auth.signOut()
             googleSignInClient.signOut().addOnCompleteListener() {
