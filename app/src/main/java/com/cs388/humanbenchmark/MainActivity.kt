@@ -35,11 +35,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        drawerLayout = findViewById(R.id.my_drawer_layout)
-//        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
-//        drawerLayout.addDrawerListener(actionBarDrawerToggle)
-//        actionBarDrawerToggle.syncState()
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         auth = FirebaseAuth.getInstance()
 
