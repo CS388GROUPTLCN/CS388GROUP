@@ -23,17 +23,42 @@
         android:textSize="40sp" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="264dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/account"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="105dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="0dp"
         android:textAlignment="center"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="84dp"
+        android:layout_above="@+id/tapBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/tapBtn"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="403dp"
+        android:text="TAP" />
 
     <Button
         android:id="@+id/signOutBtn"
@@ -42,10 +67,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="132dp"
+        android:layout_marginStart="135dp"
         android:layout_marginTop="108dp"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="408dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="43dp"
         android:text="Sign Out" />
 
 </RelativeLayout>
