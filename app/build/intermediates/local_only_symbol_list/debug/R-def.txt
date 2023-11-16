@@ -15,6 +15,7 @@ id constrain_homepage
 id main_frame_layout
 id profilePicture
 id signInBtn
+id signOut
 id signOutBtn
 id textView
 id textView2

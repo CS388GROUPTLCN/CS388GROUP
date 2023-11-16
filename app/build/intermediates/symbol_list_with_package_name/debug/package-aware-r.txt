@@ -3619,6 +3619,7 @@ id showCustom
 id showHome
 id showTitle
 id signInBtn
+id signOut
 id signOutBtn
 id sign_in_email_sent_header_text
 id sign_in_email_sent_text

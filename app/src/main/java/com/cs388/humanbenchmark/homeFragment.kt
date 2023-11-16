@@ -3,6 +3,7 @@ package com.cs388.humanbenchmark
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -44,9 +45,10 @@ class homeFragment : Fragment() {
 
 
 
-
-
     }
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,6 +57,22 @@ class homeFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+
+
+        view?.findViewById<Button>(R.id.signOut)?.setOnClickListener {
+            view?.findViewById<TextView>(R.id.username)?.visibility = View.INVISIBLE
+            view?.findViewById<ImageView>(R.id.profilePicture)?.visibility = View.INVISIBLE
+
+            auth.signOut()
+
+
+
+
+
+
+        }
+
 
         if(!seen ){
 
@@ -72,12 +90,20 @@ class homeFragment : Fragment() {
 
 
             view?.findViewById<Button>(R.id.signInBtn)?.setOnClickListener { // sign in button
+               view?.findViewById<Button>(R.id.signOut)?.visibility = View.VISIBLE
+                view?.findViewById<TextView>(R.id.username)?.visibility = View.VISIBLE
+                view?.findViewById<ImageView>(R.id.profilePicture)?.visibility = View.VISIBLE
                 signInGoogle()
+
+
             }
             seen = true
 
         }
         else{
+
+
+
             currentUser?.let { updateUI(it) }
         }
 
@@ -96,7 +122,7 @@ class homeFragment : Fragment() {
 
     private fun signInGoogle(){
         val signInIntent = googleSignInClient.signInIntent
-        Log.d("TEST","SUCCESS-1")
+        Log.e("TEST","SUCCESS-1")
         launcher.launch(signInIntent)
     }
 
@@ -105,11 +131,11 @@ class homeFragment : Fragment() {
         if (result.resultCode == Activity.RESULT_OK){
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             //this isn't being reached
-            Log.d("TEST","SUCCESS0")
+            Log.e("TEST","SUCCESS0")
             handleResults(task)
         }
         else{
-            Log.d("TEST", result.resultCode.toString())
+            Log.e("TEST", result.resultCode.toString())
         }
     }
 
@@ -118,7 +144,7 @@ class homeFragment : Fragment() {
             val account : GoogleSignInAccount? = task.result
             if (account != null){
                 currentUser = account // Store the current user
-                Log.d("TEST","SUCCESS1")
+                Log.e("TEST","SUCCESS1")
                 updateUI(account)
             }
         }
@@ -139,8 +165,6 @@ class homeFragment : Fragment() {
                 }
                 var image = requireView().findViewById<ImageView>(R.id.profilePicture)
                 Glide.with(this).load(account.photoUrl).into(image)
-
-
 
             }
             else{

@@ -60,9 +60,9 @@
 
     <Button
         android:id="@+id/signInBtn"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="72dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
@@ -73,6 +73,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signOut"
+        android:layout_width="66dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:text="sign out"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
