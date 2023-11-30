@@ -4,7 +4,7 @@
     <string name="tap_when_green">Tap Now!</string>
     <string name="clicked_too_early">You Clicked too Early!</string>
     <string name="tap_when_red">Tap when screen turns green!</string>
-    <string name="reaction_time">Reaction Time: %d milliseconds</string>
+    <string name="reaction_time">Reaction Time: %d milliseconds\n. Tap to Restart</string>
     <string name="high_score">High Score: %1$d milliseconds</string>
 
 

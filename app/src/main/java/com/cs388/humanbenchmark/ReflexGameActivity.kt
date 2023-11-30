@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.cs388.humanbenchmark.R
@@ -12,6 +14,7 @@ import com.cs388.humanbenchmark.R
 class ReflexGameActivity : AppCompatActivity() {
 
     private lateinit var textView: TextView
+    private lateinit var btn_quit: Button
     private lateinit var highScoreTextView: TextView
     private lateinit var sharedPreferences: SharedPreferences
     private var startTime: Long = 0
@@ -24,10 +27,15 @@ class ReflexGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_reflex_game)
 
         textView = findViewById(R.id.tapToStart)
+        btn_quit = findViewById(R.id.btn_quit)
         highScoreTextView = findViewById(R.id.highScoreTextView)
         textView.setTextColor(Color.BLACK)
         highScoreTextView.setTextColor(Color.BLACK)
         sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+        btn_quit.isEnabled = true
+        btn_quit.setOnClickListener{
+
+        }
 
         textView.setOnClickListener {
             if (!isGameRunning && !isGameEnded) {
@@ -38,6 +46,9 @@ class ReflexGameActivity : AppCompatActivity() {
                 endGame()
             }
         }
+        btn_quit.setOnClickListener{
+            this.finish()
+        }
     }
 
     private fun startGame() {
@@ -46,7 +57,8 @@ class ReflexGameActivity : AppCompatActivity() {
         textView.setBackgroundColor(Color.RED)
         textView.setTextColor(Color.WHITE)
         isGameRunning = true
-
+        btn_quit.visibility = View.INVISIBLE
+        btn_quit.isEnabled = false
         // Set a timer to turn the screen green after a random time
         object : CountDownTimer((1000 + Math.random() * 3000).toLong(), 100) {
             override fun onTick(millisUntilFinished: Long) {}
@@ -95,9 +107,7 @@ class ReflexGameActivity : AppCompatActivity() {
             textView.text = getString(R.string.reaction_time, reactionTime)
             isGameEnded = true
 
-            textView.postDelayed({
-                resetGame()
-            }, 3000)
+            resetGame()
         }
     }
 
@@ -113,7 +123,8 @@ class ReflexGameActivity : AppCompatActivity() {
     }
 
     private fun resetGame() {
-        textView.text = getString(R.string.tap_to_start)
+        btn_quit.visibility = View.VISIBLE
+        btn_quit.isEnabled = true
         textView.setBackgroundColor(Color.WHITE)
         textView.setTextColor(Color.BLACK)
         isGameRunning = false

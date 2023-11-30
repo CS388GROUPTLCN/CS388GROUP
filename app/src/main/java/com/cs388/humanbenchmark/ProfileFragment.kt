@@ -55,10 +55,6 @@ class ProfileFragment : Fragment() {
 
             googleSignInClient = context?.let { GoogleSignIn.getClient(it, gso) }!!
 
-
-
-
-
             view?.findViewById<Button>(R.id.signInBtn)?.setOnClickListener { // sign in button
                 signInGoogle()
             }
