@@ -7,8 +7,8 @@ class PlayerScoreFetcher {
                     "USER6", "USER7", "USER8", "USER9", "USER10", "USER11",
             "USER12", "USER13", "USER14", "USER15", "USER16"
         )
-        val game = "Game1 Example"
 
+        val game = "Rank Example"
         val score = 123456
 
         fun getScores(): MutableList<Player> {
@@ -16,7 +16,6 @@ class PlayerScoreFetcher {
             for (i in 0..9) {
                 val player = Player(username[i], game, score)
                 players.add(player)
-
             }
             return players
         }
@@ -28,16 +27,6 @@ class PlayerScoreFetcher {
                 newPlayers.add(player)
             }
             return newPlayers
-
         }
-
-
     }
-
-
-
-
-
-
-
 }

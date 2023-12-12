@@ -1,5 +1,6 @@
 package com.cs388.humanbenchmark
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,4 @@ class LeaderboardHzAdapter(private val verticalDataList: List<List<Player>>) :
 
         }
     }
-
-
 }
