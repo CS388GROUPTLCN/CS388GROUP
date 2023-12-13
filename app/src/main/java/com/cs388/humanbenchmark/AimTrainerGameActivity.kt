@@ -2,6 +2,8 @@ package com.cs388.humanbenchmark
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -53,7 +55,7 @@ class AimTrainerGameActivity : AppCompatActivity() {
     }
 
     private fun startGame() {
-        Timer().purge()
+
         gamePlaying = true
         targetHit = false
         gameTargets = 30
@@ -68,7 +70,9 @@ class AimTrainerGameActivity : AppCompatActivity() {
     }
 
     private fun newTarget() {
-        Timer().cancel()
+
+        targetView.visibility = View.VISIBLE
+
         targetHit = false
         startTime = System.currentTimeMillis()
 
@@ -77,8 +81,8 @@ class AimTrainerGameActivity : AppCompatActivity() {
         ).toInt(), 0, 0)
         targetView.layoutParams = layoutParams
 
-        Timer().schedule(delay) {
-            runOnUiThread(Runnable {
+
+                // This method will be executed once the timer is over
                 if (gameTargets == 1)
                     gameOver()
                 if (gameTargets != 1) {
@@ -87,12 +91,22 @@ class AimTrainerGameActivity : AppCompatActivity() {
                     gameTargets--
                     targetText.text = "Targets: $gameTargets"
                     targetHit = false
+                    Handler(Looper.getMainLooper()).postDelayed(
+                        {
                     newTarget()
-                }
-            })
-        }
-    }
+                        } ,
+                        delay // value in milliseconds
+                    )
+            }
 
+
+
+
+
+
+
+
+    }
     private fun targetHit(id: Int) {
         if (!gamePlaying)
             return
@@ -103,10 +117,11 @@ class AimTrainerGameActivity : AppCompatActivity() {
         if (gameTargets != 1) {
             Log.d("time elapsed", "${System.currentTimeMillis() - startTime}")
             averageTime += System.currentTimeMillis() - startTime
-            gameTargets--
+            //gameTargets--
             targetText.text = "Targets: $gameTargets"
             targetHit = false
-            newTarget()
+            targetView.visibility = View.INVISIBLE
+            //newTarget()
         }
     }
 
