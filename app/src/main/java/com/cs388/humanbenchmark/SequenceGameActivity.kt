@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import java.util.Timer
 import kotlin.concurrent.schedule
@@ -24,6 +25,12 @@ class SequenceGameActivity : AppCompatActivity() {
     private var cluePauseTime: Int = 333
     private var nextClueWaitTime: Int = 1000
     private var guessCount: Int = 0
+    private var cols: Int = 3
+    private var numTiles: Int = 8
+    private var length: Int = 5
+    private var buttonSize: Int = 300
+    private var minLevel: Int = 3
+
 
     private lateinit var startGameTextView: TextView
     private lateinit var llContent: LinearLayout
@@ -31,7 +38,7 @@ class SequenceGameActivity : AppCompatActivity() {
     private lateinit var scoreText: TextView
     private lateinit var memoryIconView: ImageView
 
-    private var newButtonListener = View.OnClickListener {
+    private var newCardListener = View.OnClickListener {
         Log.d("id", "button id = ${it.id}")
         if (!cluePlaying)
             guess(it.id)
@@ -52,19 +59,19 @@ class SequenceGameActivity : AppCompatActivity() {
             levelText.visibility = View.VISIBLE
             scoreText.visibility = View.GONE
             memoryIconView.visibility = View.GONE
-            createGrid()
-            createSequencePattern()
-            createColorPattern()
             startGame()
         }
     }
 
     private fun startGame() {
+        gamePlaying = true
+        llContent.removeAllViews()
+        createGrid(cols, buttonSize)
+        createSequencePattern(length, numTiles)
+        createColorPattern()
+        playClueSequence()
         Log.d("sequence pattern", "pattern created = $pattern")
         Log.d("color pattern", "color pattern created = $colorsPattern")
-        gamePlaying = true
-
-        playClueSequence()
     }
 
     private fun playClueSequence() {
@@ -99,8 +106,20 @@ class SequenceGameActivity : AppCompatActivity() {
             return
         }
 
-        Log.v("guess and level", "guess = $guessCount, level = $gameLevel")
+        Log.v("guess and level", "guess = $guessCount, level = ${gameLevel+1}")
         if (guessCount == gameLevel) {
+            // if player passes 5 levels the board changes
+            if (gameLevel % 2 == 0 && gameLevel < 10) {
+                llContent.removeAllViews()
+                buttonSize -= 100
+                cols += 1
+                length += 5
+                numTiles = cols*cols
+                createGrid(cols, buttonSize)
+                createSequencePattern(length, numTiles)
+                Log.d("sequence pattern", "pattern created = $pattern")
+                minLevel += 5
+            }
             levelText.text = "Level: ${gameLevel+2}"
             guessCount = 0
             gameLevel++
@@ -119,6 +138,10 @@ class SequenceGameActivity : AppCompatActivity() {
         clueHoldTime = 1000
         cluePauseTime = 333
         nextClueWaitTime = 1000
+        cols = 3
+        numTiles = 8
+        length = 5
+        buttonSize = 300
         gamePlaying = false
         levelText.text = "Level: 1"
         pattern.clear()
@@ -131,30 +154,28 @@ class SequenceGameActivity : AppCompatActivity() {
     }
 
     // function to create grid for game
-    private fun createGrid() {
+    private fun createGrid(columns: Int, size: Int) {
         llContent.visibility = View.VISIBLE
-        var buttonCount = 0
-        for (i in 1..3) {
+        var cardCount = 0
+        for (i in 1..columns) {
             val llRow = LinearLayout(this)
             llRow.orientation = LinearLayout.HORIZONTAL
             llContent.addView(llRow)
-            for (i in 1..3) {
-                val newButton = Button(this)
-                newButton.id = buttonCount
-                newButton.width = 300
-                newButton.height = 300
-                newButton.backgroundTintList = ContextCompat.getColorStateList(this, R.color.light_blue)
-                llRow.addView(newButton)
-                buttonCount++
-                newButton.setOnClickListener(newButtonListener)
+            for (i in 1..columns) {
+                val newCard = CardView(this)
+                newCard.id = cardCount
+                newCard.backgroundTintList = ContextCompat.getColorStateList(this, R.color.light_blue)
+                llRow.addView(newCard)
+                cardCount++
+                newCard.setOnClickListener(newCardListener)
             }
         }
     }
 
     // function to create sequence pattern
-    private fun createSequencePattern() {
-        for (i in 0..200) {
-            pattern.add(floor(Math.random() * 8).toInt())
+    private fun createSequencePattern(length: Int, numTiles: Int) {
+        for (i in 0..length) {
+            pattern.add(floor(Math.random() * numTiles).toInt())
         }
     }
 
