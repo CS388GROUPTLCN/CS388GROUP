@@ -5,17 +5,11 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.cs388.humanbenchmark.R
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.database
 
 class ReflexGameActivity : AppCompatActivity() {
 
@@ -29,7 +23,6 @@ class ReflexGameActivity : AppCompatActivity() {
     private val HIGH_SCORE_KEY = "high_score"
     private var lastReactionTime: Long = 0
     private lateinit var reactionTimeTextView: TextView
-    private lateinit var backButton: ImageButton
 
 
 
@@ -44,12 +37,6 @@ class ReflexGameActivity : AppCompatActivity() {
         textView.setBackgroundColor(Color.rgb(227,247,250))
         highScoreTextView.setTextColor(Color.BLACK)
         sharedPreferences = getPreferences(Context.MODE_PRIVATE)
-        backButton = findViewById(R.id.reflex_back)
-
-        backButton.setOnClickListener {
-            Log.e("back button", "pressed!!!!")
-            onBackPressed()
-        }
 
         textView.setOnClickListener {
             if (!isGameRunning && !isGameEnded) {
@@ -110,8 +97,6 @@ class ReflexGameActivity : AppCompatActivity() {
             val reactionTime = System.currentTimeMillis() - startTime
             lastReactionTime = reactionTime // Save the reaction time
 
-
-            updateScore(lastReactionTime,"1")
             // Retrieve the current high score
             val currentHighScore = sharedPreferences.getLong(HIGH_SCORE_KEY, Long.MAX_VALUE)
 
@@ -169,34 +154,6 @@ class ReflexGameActivity : AppCompatActivity() {
                 endGameTooEarly()
             } else if (textView.text == getString(R.string.tap_when_green) && isGameRunning) {
                 endGame()
-            }
-        }
-    }
-    private fun updateScore(currentScore : Long, index:String){
-        var auth: FirebaseAuth = FirebaseAuth.getInstance()
-        var database: DatabaseReference = Firebase.database.reference
-        val uid = auth.currentUser?.uid
-        if (uid != null){// only attempt to update database if user is logged in
-            database.child("users").child(uid).child("game$index").child("best").get().addOnSuccessListener{
-                if (it.value == null){
-                    database.child("users").child(uid).child("game$index").child("best").setValue(currentScore)
-                    database.child("users").child(uid).child("username").get().addOnSuccessListener{//get username in order to update leaderboard
-                        val username = it.value.toString()
-                        Log.d("GOON",username)
-                        database.child("leaderboard").child("game$index").child(username).setValue(currentScore)
-                    }
-                }
-                else{
-                    val highscore = it.value.toString().toLong()
-                    if (currentScore < highscore){
-                        database.child("users").child(uid).child("game$index").child("best").setValue(currentScore)
-                        database.child("users").child(uid).child("username").get().addOnSuccessListener{
-                            val username = it.value.toString()
-                            Log.d("GOON",username)
-                            database.child("leaderboard").child("game$index").child(username).setValue(currentScore)
-                        }
-                    }
-                }
             }
         }
     }

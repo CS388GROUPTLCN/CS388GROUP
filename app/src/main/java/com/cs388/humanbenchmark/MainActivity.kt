@@ -15,23 +15,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     lateinit var drawerLayout: DrawerLayout
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-//    lateinit var verticalDataList1: MutableList<List<Player>>
-//    lateinit var game1Scores1: List<Player>
-//    lateinit var game2Scores1: List<Player>
-//    lateinit var game3Scores1: List<Player>
 
     //private val TAG = "MainActivity"
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-//        val array = FetchArray.getInstance()
-//        array.setArrays(verticalDataList1)
 
 
 
@@ -68,14 +57,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.main_frame_layout, fragment)
         fragmentTransaction.commit()
     }
-
-
-
-
-
-
-
-
 
 
 

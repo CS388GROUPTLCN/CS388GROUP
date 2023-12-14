@@ -42,7 +42,6 @@ android {
 
 dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
-    implementation("androidx.recyclerview:recyclerview:1.2.0")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.core:core-ktx:1.6.0")
@@ -64,7 +63,7 @@ dependencies {
 
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-    implementation("com.google.firebase:firebase-database")
+
     // When using the BoM, don't specify versions in Firebase dependencies
     // https://firebase.google.com/docs/android/setup#available-libraries
 }

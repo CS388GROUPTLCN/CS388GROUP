@@ -1,14 +1,13 @@
 package com.cs388.humanbenchmark
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ConcatAdapter
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class LeaderboardHzAdapter(private val verticalDataList: Array<MutableList<Player>?>) :
+class LeaderboardHzAdapter(private val verticalDataList: List<List<Player>>) :
     RecyclerView.Adapter<LeaderboardHzAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -21,10 +20,7 @@ class LeaderboardHzAdapter(private val verticalDataList: Array<MutableList<Playe
 
     override fun onBindViewHolder(holder: LeaderboardHzAdapter.ViewHolder, position: Int) {
         val verticalData = verticalDataList[position]
-        Log.d("position", "$position ${verticalDataList[position]}")
-        if (verticalData != null) {
-            holder.bindVerticalData(verticalData)
-        }
+        holder.bindVerticalData(verticalData)
     }
 
     override fun getItemCount(): Int {
@@ -39,9 +35,6 @@ class LeaderboardHzAdapter(private val verticalDataList: Array<MutableList<Playe
             verticalRecyclerView.adapter = verticalAdapter
             verticalRecyclerView.layoutManager = LinearLayoutManager(itemView.context)
 
-            val headerAdapter = HeaderAdapter(verticalData)
-            val concatAdapter = ConcatAdapter(headerAdapter, verticalAdapter)
-            verticalRecyclerView.adapter = concatAdapter
         }
     }
 

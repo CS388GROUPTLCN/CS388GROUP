@@ -8,11 +8,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.FrameLayout.LayoutParams
-import android.widget.ImageButton
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.database
 
 class AimTrainerGameActivity : AppCompatActivity() {
     private var positions = mutableListOf<Pair<Int, Int>>()
@@ -31,7 +26,6 @@ class AimTrainerGameActivity : AppCompatActivity() {
     private lateinit var gameContent: FrameLayout
     private lateinit var targetView: ImageView
     private lateinit var precisionIconView: ImageView
-    private lateinit var backButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +37,6 @@ class AimTrainerGameActivity : AppCompatActivity() {
         gameContent = findViewById(R.id.aim_trainer_game_content)
         targetView = findViewById(R.id.target)
         precisionIconView = findViewById(R.id.precision_icon)
-
-        backButton = findViewById(R.id.aim_back)
-
-        backButton.setOnClickListener {
-            Log.e("back button", "pressed!!!!")
-            onBackPressed()
-        }
 
         startGameTextView.setOnClickListener {
             startGame()
@@ -66,7 +53,7 @@ class AimTrainerGameActivity : AppCompatActivity() {
         targetText.text = "Targets: $gameTargets"
         startGameTextView.visibility = View.GONE
         scoreText.visibility = View.GONE
-        precisionIconView.visibility = View.INVISIBLE
+        precisionIconView.visibility = View.GONE
         targetText.visibility = View.VISIBLE
         gameContent.visibility = View.VISIBLE
         Log.d("positions", "positions created = $positions")
@@ -98,7 +85,6 @@ class AimTrainerGameActivity : AppCompatActivity() {
 
     private fun gameOver() {
         var finalScore = averageTime/30
-        updateScore(finalScore,"3")
         Log.d("score", "Your score! ${averageTime/30}")
         scoreText.text = "Average Time Between Targets: $finalScore ms."
         averageTime = 0
@@ -108,34 +94,5 @@ class AimTrainerGameActivity : AppCompatActivity() {
         scoreText.visibility = View.VISIBLE
         startGameTextView.visibility = View.VISIBLE
         precisionIconView.visibility = View.VISIBLE
-    }
-
-    private fun updateScore(currentScore : Long, index:String){
-        var auth: FirebaseAuth = FirebaseAuth.getInstance()
-        var database: DatabaseReference = Firebase.database.reference
-        val uid = auth.currentUser?.uid
-        if (uid != null){// only attempt to update database if user is logged in
-            database.child("users").child(uid).child("game$index").child("best").get().addOnSuccessListener{
-                if (it.value == null){
-                    database.child("users").child(uid).child("game$index").child("best").setValue(currentScore)
-                    database.child("users").child(uid).child("username").get().addOnSuccessListener{//get username in order to update leaderboard
-                        val username = it.value.toString()
-                        Log.d("GOON",username)
-                        database.child("leaderboard").child("game$index").child(username).setValue(currentScore)
-                    }
-                }
-                else{
-                    val highscore = it.value.toString().toLong()
-                    if (currentScore < highscore){
-                        database.child("users").child(uid).child("game$index").child("best").setValue(currentScore)
-                        database.child("users").child(uid).child("username").get().addOnSuccessListener{
-                            val username = it.value.toString()
-                            Log.d("GOON",username)
-                            database.child("leaderboard").child("game$index").child(username).setValue(currentScore)
-                        }
-                    }
-                }
-            }
-        }
     }
 }
