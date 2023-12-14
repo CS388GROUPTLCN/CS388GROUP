@@ -104,10 +104,6 @@ class ProfileFragment : Fragment() {
                     view?.findViewById<Button>(R.id.signInBtn)?.text = "Sign In"
                     destroyUI()
                     signedIn = false
-
-                    if (pleaseSignInTextView != null) {
-                        pleaseSignInTextView.visibility = View.VISIBLE
-                    }
                 }
             }
 
