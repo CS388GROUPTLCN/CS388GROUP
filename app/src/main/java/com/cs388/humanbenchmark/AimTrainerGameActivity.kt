@@ -3,13 +3,11 @@ package com.cs388.humanbenchmark
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.FrameLayout
-import android.widget.FrameLayout.LayoutParams
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import java.util.Timer
-import kotlin.concurrent.schedule
+import android.widget.FrameLayout.LayoutParams
 
 class AimTrainerGameActivity : AppCompatActivity() {
     private var positions = mutableListOf<Pair<Int, Int>>()
@@ -17,8 +15,6 @@ class AimTrainerGameActivity : AppCompatActivity() {
     private var gamePlaying: Boolean = false
     private var startTime: Long = 0
     private var averageTime: Long = 0
-    private var targetHit: Boolean = false
-    private var delay: Long = 1000
     private var layoutParams = LayoutParams(
         LayoutParams.WRAP_CONTENT,
         LayoutParams.WRAP_CONTENT
@@ -52,9 +48,7 @@ class AimTrainerGameActivity : AppCompatActivity() {
     }
 
     private fun startGame() {
-        Timer().purge()
         gamePlaying = true
-        targetHit = false
         gameTargets = 30
         targetText.text = "Targets: $gameTargets"
         startGameTextView.visibility = View.GONE
@@ -67,32 +61,12 @@ class AimTrainerGameActivity : AppCompatActivity() {
     }
 
     private fun newTarget() {
-        Timer().cancel()
-        targetHit = false
         startTime = System.currentTimeMillis()
-
-        layoutParams.setMargins(
-            kotlin.math.floor(Math.random() * 800).toInt(), kotlin.math.floor(
-                Math.random() * 1300
-            ).toInt(), 0, 0
-        )
+        layoutParams.setMargins(kotlin.math.floor(Math.random() * 800).toInt(), kotlin.math.floor(
+            Math.random() * 1300
+        ).toInt(), 0, 0)
         targetView.layoutParams = layoutParams
-
-        Timer().schedule(delay) {
-            if (gameTargets == 1)
-                gameOver()
-            if (gameTargets != 1) {
-                Log.d("time elapsed", "${System.currentTimeMillis() - startTime}")
-                averageTime += System.currentTimeMillis() - startTime
-                gameTargets--
-                targetText.text = "Targets: $gameTargets"
-                targetHit = false
-                Timer().schedule(300) {
-                }
-            }
-        }
     }
-
     private fun targetHit(id: Int) {
         if (!gamePlaying)
             return
@@ -105,7 +79,6 @@ class AimTrainerGameActivity : AppCompatActivity() {
             averageTime += System.currentTimeMillis() - startTime
             gameTargets--
             targetText.text = "Targets: $gameTargets"
-            targetHit = false
             newTarget()
         }
     }
@@ -116,7 +89,6 @@ class AimTrainerGameActivity : AppCompatActivity() {
         scoreText.text = "Average Time Between Targets: $finalScore ms."
         averageTime = 0
         gamePlaying = false
-        targetHit = false
         targetText.visibility = View.GONE
         gameContent.visibility = View.GONE
         scoreText.visibility = View.VISIBLE
