@@ -108,11 +108,13 @@ class LeaderboardFragment : Fragment() {
                        players = players.reversed().toMutableList()
                     }
 
+                    players.sortWith(Comparator {
+                            lhs, rhs ->
+                        lhs.score.toInt().compareTo(rhs.score.toInt())
+                    })
                     verticalDataList[gameCategory-1] = players
 
                     leaderboardHz.adapter = LeaderboardHzAdapter(verticalDataList)
-
-
                 }
             }
 
