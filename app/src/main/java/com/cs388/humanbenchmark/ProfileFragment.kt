@@ -69,6 +69,8 @@ class ProfileFragment : Fragment() {
 
         if (profileViewModel.isUserSignedIn) {
             // User was signed in, update UI accordingly
+            view?.findViewById<Button>(R.id.signInBtn)?.visibility = View.INVISIBLE
+
             updateUI(currentUser!!)
 
         }
@@ -90,9 +92,11 @@ class ProfileFragment : Fragment() {
             view?.findViewById<Button>(R.id.signInBtn)?.setOnClickListener { // sign in button
                 if (!signedIn) {
 
+                    view?.findViewById<Button>(R.id.signInBtn)?.visibility = View.INVISIBLE
 
                     signInGoogle()
                     view?.findViewById<Button>(R.id.signInBtn)?.text = "Sign Out"
+
                     signedIn = true
 
 
@@ -100,6 +104,7 @@ class ProfileFragment : Fragment() {
                     auth.signOut()
                     googleSignInClient.signOut()
                     view?.findViewById<Button>(R.id.signInBtn)?.text = "Sign In"
+
                     destroyUI()
                     signedIn = false
 
@@ -131,6 +136,8 @@ class ProfileFragment : Fragment() {
                 currentUser = account // Store the current user
                 Log.d("TEST", "SUCCESS1")
                 updateUI(account)
+                view?.findViewById<Button>(R.id.signInBtn)?.visibility = View.VISIBLE
+
             }
         } else {
             Toast.makeText(context, task.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -157,11 +164,13 @@ class ProfileFragment : Fragment() {
                 username?.visibility = View.VISIBLE
                 image?.visibility = View.VISIBLE
                 view?.findViewById<Button>(R.id.signInBtn)?.text = "Sign Out"
+                view?.findViewById<Button>(R.id.signInBtn)?.visibility = View.VISIBLE
 
             } else {
                 Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun destroyUI() {
