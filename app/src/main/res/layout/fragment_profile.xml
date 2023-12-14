@@ -14,28 +14,6 @@
     >
 
     <TextView
-        android:id="@+id/pleaseSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@drawable/background_text_view"
-        android:gravity="center"
-        android:letterSpacing="0.1"
-        android:padding="16dp"
-        android:shadowColor="#66000000"
-        android:text="Please Sign In"
-        android:textAllCaps="true"
-        android:textColor="#01383d"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/signInBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898"
-        android:visibility="visible" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -86,7 +86,6 @@ class ProfileFragment : Fragment() {
 
 
 
-            val pleaseSignInTextView = view?.findViewById<TextView>(R.id.pleaseSignIn)
             view?.findViewById<Button>(R.id.signInBtn)?.setOnClickListener { // sign in button
                 if (!signedIn) {
 
@@ -94,10 +93,6 @@ class ProfileFragment : Fragment() {
                     signInGoogle()
                     view?.findViewById<Button>(R.id.signInBtn)?.text = "Sign Out"
                     signedIn = true
-                    if (pleaseSignInTextView != null) {
-                        pleaseSignInTextView.visibility = View.GONE
-                    }
-
                 } else {
                     auth.signOut()
                     googleSignInClient.signOut()
