@@ -51,6 +51,5 @@ class LeaderboardFragment : Fragment() {
         val hzAdapter = LeaderboardHzAdapter(verticalDataList)
         leaderboardHz.adapter = hzAdapter
         leaderboardHz.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
     }
 }
